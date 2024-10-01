@@ -6,7 +6,7 @@ type ColoredBtnPropsType = {
   toggleButtons: (color: string) => void;
   setActiveButton: Dispatch<SetStateAction<string>>;
   setShowBtns: Dispatch<SetStateAction<boolean>>;
-  activeButton: string
+
 };
 
 const ColoredBtn = ({
@@ -14,7 +14,7 @@ const ColoredBtn = ({
   toggleButtons,
   setActiveButton,
   setShowBtns,
-  activeButton,
+
   setShowTodo
 }: ColoredBtnPropsType) => {
 

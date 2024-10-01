@@ -21,7 +21,7 @@ function ButtonsSection() {
             toggleButtons={toggleButtons}
             setActiveButton={setActiveButton}
             setShowBtns={setShowBtns}
-            activeButton={activeButton}
+        
           />
         ))}
     </div>
