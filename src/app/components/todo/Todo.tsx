@@ -1,6 +1,6 @@
 "use client";
 import { GlobalContext } from "@/app/context/ContextProvider";
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 
 function Todo() {
   const context = useContext(GlobalContext);

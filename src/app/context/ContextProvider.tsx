@@ -1,6 +1,6 @@
 "use client";
 import { createContext,  useState } from "react";
-import { ContextType, todoContainerType, TodoType } from "../interfaces/interface";
+import { ContextType, todoContainerType  } from "../interfaces/interface";
 
 
 export const GlobalContext = createContext<ContextType | null>(null);
