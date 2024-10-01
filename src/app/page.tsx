@@ -1,4 +1,3 @@
-
 import ButtonsSection from "./components/ButtonsSection/ButtonsSection";
 import MainBtn from "./components/mainBtn/MainBtn";
 import Todo from "./components/todo/Todo";
@@ -11,7 +10,7 @@ export default function Home() {
       </div>
       <MainBtn />
 
-      <div className="absolute bottom-[15vh] right-[3%] gap-y-2">
+      <div className="absolute bottom-[20vh] right-10 gap-y-4">
         <ButtonsSection />
       </div>
     </div>

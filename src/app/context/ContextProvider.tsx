@@ -1,26 +1,7 @@
 "use client";
-import { createContext, Dispatch, SetStateAction, useState } from "react";
+import { createContext,  useState } from "react";
+import { ContextType, todoContainerType, TodoType } from "../interfaces/interface";
 
-type TodoType = {
-  text: string;
-  completed: boolean;
-  id: number;
-};
-
-export type ContextType = {
-  getButtons: () => void;
-  showBtns: boolean;
-  setNewTodo: Dispatch<SetStateAction<string>>;
-  newTodo: string;
-  createTodos: (e: React.FormEvent<HTMLFormElement>) => void;
-  todos: TodoType[];
-  setShowTodo: Dispatch<SetStateAction<boolean>>;
-  showTodo: boolean;
-  toggleButtons: (color: string) => void;
-  setActiveButton: Dispatch<SetStateAction<string>>;
-  activeButton: string;
-  setShowBtns: Dispatch<SetStateAction<boolean>>;
-};
 
 export const GlobalContext = createContext<ContextType | null>(null);
 
@@ -28,38 +9,28 @@ function ContextProvider({ children }: { children: React.ReactNode }) {
   const [showTodo, setShowTodo] = useState(false);
   const [showBtns, setShowBtns] = useState(false);
   const [newTodo, setNewTodo] = useState("");
-  const [todos, setTodos] = useState<TodoType[]>([]);
   const [activeButton, setActiveButton] = useState("");
+  const [todoContainer, setTodoContainer] = useState<todoContainerType[]>([]);
 
 
-  const createTodos = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>, id: number) => {
     e.preventDefault();
-    const lastId = todos[todos.length - 1]?.id || 1;
-    const todo = {
+    const newItem = {
       text: newTodo,
+      id: Math.random().toString(36).substr(2, 9),
       completed: false,
-      id: lastId + 1,
     };
-    setTodos((prev) => [...prev, todo]);
-    setNewTodo("");
+
+    setTodoContainer((prev) =>
+      prev.map((el) =>
+        el.id === id ? { ...el, todo: newItem } : el
+      )
+    );
+    setNewTodo("")
   };
 
   const getButtons = () => {
-    if (showBtns === false) {
-      setShowBtns(true);
-    } else {
-      setShowBtns(false);
-    }
-  };
-
-  const toggleButtons = (color: string) => {
-    if (activeButton === color) {
-      setActiveButton("");
-      setShowTodo(false);
-    } else {
-      setActiveButton(color);
-      setShowTodo(true);
-    }
+    setShowBtns(!showBtns);
   };
 
   return (
@@ -69,14 +40,14 @@ function ContextProvider({ children }: { children: React.ReactNode }) {
         showBtns,
         setNewTodo,
         newTodo,
-        createTodos,
-        todos,
         setShowTodo,
         showTodo,
-        toggleButtons,
         setActiveButton,
         activeButton,
         setShowBtns,
+        setTodoContainer,
+        todoContainer,
+        handleSubmit,
       }}
     >
       <div>{children}</div>

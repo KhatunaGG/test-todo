@@ -6,9 +6,16 @@ import { useContext } from "react";
 function ButtonsSection() {
   const context = useContext(GlobalContext);
   if (!context) return null;
-  const { showBtns, setShowTodo, toggleButtons, setActiveButton, setShowBtns } = context;
+  const {
+    showBtns,
+    setShowTodo,
+    setActiveButton,
+    setShowBtns,
+    setTodoContainer,
+    todoContainer,
+  } = context;
 
-  const colors = [ "blue", "green", "yellow", "purple"];
+  const colors = ["blue", "green", "yellow", "purple"];
 
   return (
     <div className="flex flex-col">
@@ -18,10 +25,10 @@ function ButtonsSection() {
             key={index}
             color={color}
             setShowTodo={setShowTodo}
-            toggleButtons={toggleButtons}
             setActiveButton={setActiveButton}
             setShowBtns={setShowBtns}
-        
+            setTodoContainer={setTodoContainer}
+            todoContainer={todoContainer}
           />
         ))}
     </div>

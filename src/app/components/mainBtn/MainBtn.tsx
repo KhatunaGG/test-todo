@@ -5,17 +5,16 @@ import { useContext } from "react";
 const MainBtn = () => {
   const context = useContext(GlobalContext);
   if (!context) return;
-  const { getButtons,  setShowTodo } = context;
+  const { getButtons, setShowTodo } = context;
 
   return (
     <>
       <button
-        // onClick={getButtons}
         onClick={() => {
-            getButtons()
-            setShowTodo(false)
+          getButtons();
+          setShowTodo(false);
         }}
-        className="w-10 h-10 rounded-full bg-black absolute bottom-10 right-10"
+        className="w-[50px] h-[50px] rounded-full bg-black absolute bottom-[12vh] right-10"
       ></button>
     </>
   );

@@ -1,35 +1,40 @@
+"use client";
+import { todoContainerType } from "@/app/interfaces/interface";
 import React, { Dispatch, SetStateAction } from "react";
-
 type ColoredBtnPropsType = {
   color: string;
   setShowTodo: Dispatch<SetStateAction<boolean>>;
-  toggleButtons: (color: string) => void;
   setActiveButton: Dispatch<SetStateAction<string>>;
   setShowBtns: Dispatch<SetStateAction<boolean>>;
-
+  setTodoContainer: Dispatch<SetStateAction<todoContainerType[]>>;
+  todoContainer: todoContainerType[];
 };
 
 const ColoredBtn = ({
   color,
-  toggleButtons,
-  setActiveButton,
   setShowBtns,
-
-  setShowTodo
+  setTodoContainer,
+  todoContainer,
 }: ColoredBtnPropsType) => {
 
 
+  const handleClick = (color: string) => {
+    const lastId = todoContainer[todoContainer.length - 1]?.id || 0;
+    const newField = {
+      color: color,
+      id: lastId + 1,
+    };
+    setTodoContainer((prev) => [...prev, newField]);
+    setShowBtns(false);
+  };
+
   return (
     <button
-      //   onClick={toggleButtons}
       onClick={() => {
-        toggleButtons(color);
-        setActiveButton(color);
-        setShowBtns(false)
-        setShowTodo(true)
+        handleClick(color);
       }}
       style={{ backgroundColor: color }}
-      className="w-10 h-10 rounded-full border border-sky-100"
+      className="w-[50px] h-[50px] rounded-full border border-sky-100"
     ></button>
   );
 };
