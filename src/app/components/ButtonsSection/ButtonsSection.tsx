@@ -6,7 +6,7 @@ import { useContext } from "react";
 function ButtonsSection() {
   const context = useContext(GlobalContext);
   if (!context) return null;
-  const { showBtns, setShowTodo, toggleButtons, setActiveButton, setShowBtns, activeButton } = context;
+  const { showBtns, setShowTodo, toggleButtons, setActiveButton, setShowBtns } = context;
 
   const colors = [ "blue", "green", "yellow", "purple"];
 
