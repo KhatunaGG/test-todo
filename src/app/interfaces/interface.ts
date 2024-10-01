@@ -26,3 +26,12 @@ export type ContextType = {
   todoContainer: todoContainerType[];
   handleSubmit: (e: React.FormEvent<HTMLFormElement>, id: number) => void;
 };
+
+export type ColoredBtnPropsType = {
+  color: string;
+  setShowTodo: Dispatch<SetStateAction<boolean>>;
+  setActiveButton: Dispatch<SetStateAction<string>>;
+  setShowBtns: Dispatch<SetStateAction<boolean>>;
+  setTodoContainer: Dispatch<SetStateAction<todoContainerType[]>>;
+  todoContainer: todoContainerType[];
+};

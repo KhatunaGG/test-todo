@@ -1,14 +1,6 @@
 "use client";
-import { todoContainerType } from "@/app/interfaces/interface";
-import React, { Dispatch, SetStateAction } from "react";
-type ColoredBtnPropsType = {
-  color: string;
-  setShowTodo: Dispatch<SetStateAction<boolean>>;
-  setActiveButton: Dispatch<SetStateAction<string>>;
-  setShowBtns: Dispatch<SetStateAction<boolean>>;
-  setTodoContainer: Dispatch<SetStateAction<todoContainerType[]>>;
-  todoContainer: todoContainerType[];
-};
+import { ColoredBtnPropsType  } from "@/app/interfaces/interface";
+
 
 const ColoredBtn = ({
   color,
