@@ -5,7 +5,7 @@ import { useContext } from "react";
 const MainBtn = () => {
   const context = useContext(GlobalContext);
   if (!context) return;
-  const { getButtons, showBtns, setShowTodo } = context;
+  const { getButtons,  setShowTodo } = context;
 
   return (
     <>

@@ -18,7 +18,7 @@ const ColoredBtn = ({
   setShowTodo
 }: ColoredBtnPropsType) => {
 
-    const isActive = activeButton === color;
+
   return (
     <button
       //   onClick={toggleButtons}

@@ -7,7 +7,7 @@ function Todo() {
   const context = useContext(GlobalContext);
   if (!context) return null;
 
-  const { setNewTodo, newTodo, createTodos, todos, showTodo, activeButton } =
+  const { setNewTodo, newTodo, createTodos, showTodo, activeButton } =
     context;
 
   return (
